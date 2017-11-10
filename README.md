@@ -15,20 +15,20 @@ There are two types.
 
 Here is how you should describe it in the manifest file:
 
-"background": {
+`"background": {
     "scripts": ["background.js"],
     "persistent": false/true
-}
+}`
 
 # Content Script
 If you need access to the current page's DOM, then you have to use a content script. The code is run within the context of the current web page, which means that it will be executed with every refresh. To add such a script, use the following syntax.
 
-"content_scripts": [
+`"content_scripts": [
     {
         "matches": ["http://*/*", "https://*/*"],
         "js": ["content.js"]
     }
-]
+]`
 
 # Browser Action
 A browser action, which allows us to place a clickable icon right next to Chrome's Omnibox for easy access.Clicking that icon will open a popup window that will allow the user to choose the background color of the current page.
