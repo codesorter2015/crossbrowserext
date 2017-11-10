@@ -30,3 +30,13 @@ If you need access to the current page's DOM, then you have to use a content scr
     }
 ]
 
+# Browser Action
+A browser action, which allows us to place a clickable icon right next to Chrome's Omnibox for easy access.Clicking that icon will open a popup window that will allow the user to choose the background color of the current page.
+
+# Manifest File
+The very first thing we'll need to create is a manifest file named manifest.json.
+
+It is a metadata file in JSON format that contains properties like your extension's name, description, version number and so on. 
+
+To learn more about the manifest, read the `Manifest File Format documentation. https://developer.chrome.com/extensions/manifest`_
+
