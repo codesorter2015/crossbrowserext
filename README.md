@@ -38,5 +38,5 @@ The very first thing we'll need to create is a manifest file named manifest.json
 
 It is a metadata file in JSON format that contains properties like your extension's name, description, version number and so on. 
 
-To learn more about the manifest, read the `Manifest File Format documentation. https://developer.chrome.com/extensions/manifest`_
+To learn more about the manifest, read the [Manifest File Format documentation](https://developer.chrome.com/extensions/manifest)
 
