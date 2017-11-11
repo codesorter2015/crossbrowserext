@@ -40,3 +40,10 @@ It is a metadata file in JSON format that contains properties like your extensio
 
 To learn more about the manifest, read the [Manifest File Format documentation](https://developer.chrome.com/extensions/manifest)
 
+# Load the extension
+* Visit chrome://extensions in your browser url
+* Ensure that the Developer mode checkbox in the top right-hand corner is checked.
+* Click Load unpacked extension to pop up a file-selection dialog.
+* Navigate to the directory in which your extension files live, and select it.
+> If the extension is valid, it'll be loaded up and active right away! If it's invalid, an error message will be displayed at the top of the page. Correct the error, and try again.
+
