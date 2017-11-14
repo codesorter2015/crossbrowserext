@@ -72,3 +72,15 @@ You need to put all of its user-visible strings into a file named messages.json.
 
 The manifest file must define "default_locale".
 `Ex: "default_locale": "en"`
+
+In your extension or app's JavaScript code, refer to a string named messagename like this:
+chrome.i18n.getMessage("messagename")
+
+Predefined messages:
+The internationalization system provides a few predefined messages to help you localize.
+
+Here's an example of using @@extension_id in a CSS file to construct a URL:
+
+`body {
+ background-image:url('chrome-extension://__MSG_@@extension_id__/background.png');
+}`
