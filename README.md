@@ -47,3 +47,28 @@ To learn more about the manifest, read the [Manifest File Format documentation](
 * Navigate to the directory in which your extension files live, and select it.
 > If the extension is valid, it'll be loaded up and active right away! If it's invalid, an error message will be displayed at the top of the page. Correct the error, and try again.
 
+# Content Security Policy (CSP)
+Let’s define a policy that only allows script to execute when it comes from one of those two sources:
+`Content-Security-Policy: script-src 'self' https://apis.google.com`
+
+CSP provides a rich set of policy directives that enable fairly granular control over the resources that a page is allowed to load.
+ 
+script-src is a directive that controls a set of script-related privileges for a specific page.
+
+Four keywords are also accepted in the source list:
+* 'none', as you might expect, matches nothing.
+* 'self' matches the current origin, but not its subdomains.
+* 'unsafe-inline' allows inline JavaScript and CSS
+* 'unsafe-eval' allows text-to-JavaScript mechanisms like eval
+These keywords require single-quotes. 
+script-src 'self' (with quotes) authorizes the execution of JavaScript from the current host.
+script-src self (no quotes) allows JavaScript from a server named “self”
+
+
+# chrome.i18n
+Using chrome.i18n, we will implement internationalization across your whole extension.
+
+You need to put all of its user-visible strings into a file named messages.json. Each time you add a new locale, you add a messages file under a directory named _locales/localeCode, where localeCode is a code such as en for English.
+
+The manifest file must define "default_locale".
+`Ex: "default_locale": "en"`
