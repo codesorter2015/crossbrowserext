@@ -100,6 +100,8 @@ A crx file is really just a zip file of your extension directory plus 2 more thi
 * Public key
 * Signature - (Generated with private key and zipped content)
 
+* Fetch public data with XHR
+
 # Auto Update
 Browser will check that url every few hours for an xml file, and can fetch updated crx files over a plain,non-ssl connection because it check the signature inside the crx file before installing it.
 Using "update_url":"http://yourwebsite.com/yourextension.xml" (in your manifest.json file)
@@ -119,7 +121,6 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 * Chrome is a global object to which all extension APIs are bound.
 * Chrome currently defines about 40 objects and 40 methods. "Chrome" is a name of the top-level object automatically exposed to all extensions.
 * Chrome extension has properties and methods. 
-
 * The APIs is split into six modules, which are represented by objects contained in the "chrome" object. 
 ```
 - `chrome.extension.*` that let you to send messages to communicate between extension components ana resolve the URLs of extension files.
@@ -129,11 +130,9 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 - `chrome.bookmarks.*` requires bookmarks permission.
 - `chrome.tabs.*` requires tabs permission.
 ```
-
-* Google Chrome is multi-process architecture which means it will support synchronous/asynchronous APIs is more challenging,but it's in
 * Using asynchronous APIs is more challenging,but it's in the service of the best user experience possible and It won't take long to get the hang of it.
-
-
+* Refactor non-presentation code (let's improve the extension's performance and functionality by refactoring)  
+* Google Chrome is multi-process architecture which means it will support synchronous/asynchronous APIs is more challenging,but it's in
 # Example of a synchronous function
 
 ```JS
