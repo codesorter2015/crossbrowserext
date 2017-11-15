@@ -20,6 +20,8 @@ Here is how you should describe it in the manifest file:
     "persistent": false/true
 }`
 
+Background pages are long-running scripts that help you manage state and coordinate tasks across extension components
+
 # Content Script
 If you need access to the current page's DOM, then you have to use a content script. The code is run within the context of the current web page, which means that it will be executed with every refresh. To add such a script, use the following syntax.
 
@@ -30,8 +32,15 @@ If you need access to the current page's DOM, then you have to use a content scr
     }
 ]`
 
+Content scripts are arbitrary CSS and Javascript that are injected into selected pages.
+
 # Browser Action
 A browser action, which allows us to place a clickable icon right next to Chrome's Omnibox for easy access.Clicking that icon will open a popup window that will allow the user to choose the background color of the current page.
+
+A Browser action appears in the toolbar of every tab.
+
+# Page Action
+A page action selectively appears in the omnibox and can be toggled on or off for each tab.
 
 # Manifest File
 The very first thing we'll need to create is a manifest file named manifest.json.
@@ -106,6 +115,43 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 * Make sure your extension UI design is simpler and minimal.
 * If you want extension to talk to a server ? Use XmlHttpRequest
 * If you want it to presist some data? Use Cookies, LocalStorage or HTML5 Databases.
+* An extension is a compressed directory
+* Chrome is a global object to which all extension APIs are bound.
+* Chrome currently defines about 40 objects and 40 methods. "Chrome" is a name of the top-level object automatically exposed to all extensions.
+* Chrome extension has properties and methods. 
+
+* The APIs is split into six modules, which are represented by objects contained in the "chrome" object. 
+```
+- `chrome.extension.*` that let you to send messages to communicate between extension components ana resolve the URLs of extension files.
+- `chrome.browserAction.*`
+- `chrome.pageAction.*` that let you enable and disable page actions
+- `chrome.windows.*` that let you open,close,look up, and update browser windows. requires tabs permission - windows and tabs are so closely related they share a common permission.
+- `chrome.bookmarks.*` requires bookmarks permission.
+- `chrome.tabs.*` requires tabs permission.
+```
+
+* Google Chrome is multi-process architecture which means it will support synchronous/asynchronous APIs is more challenging,but it's in
+* Using asynchronous APIs is more challenging,but it's in the service of the best user experience possible and It won't take long to get the hang of it.
+
+
+# Example of a synchronous function
+
+```JS
+chrome.browserAction.onClicked.addListener(function(tab)
+{
+    chrome.tabs.create({url:chrome.extension.getURL('home.html')});
+}); 
+```
+
+# Example of a asynchronous function
+```JS
+chrome.bookmarks.update(42,
+   {title:"new title"}, 
+   function(bookmarkNode){
+   
+   }
+); 
+```
 
 # Ref Urls
 * [Learn Basic](https://developer.chrome.com/extensions)
