@@ -84,3 +84,27 @@ Here's an example of using @@extension_id in a CSS file to construct a URL:
 `body {
  background-image:url('chrome-extension://__MSG_@@extension_id__/background.png');
 }`
+
+# CRX file
+A crx file is really just a zip file of your extension directory plus 2 more things:
+
+* Public key
+* Signature - (Generated with private key and zipped content)
+
+# Auto Update
+Browser will check that url every few hours for an xml file, and can fetch updated crx files over a plain,non-ssl connection because it check the signature inside the crx file before installing it.
+Using "update_url":"http://yourwebsite.com/yourextension.xml" (in your manifest.json file)
+
+If you hosting your extension in our gallery,you don't need to worry about autoupdate, chrome will take care of it for you.
+
+# Notes
+* Extension id has made up of 32 characters
+* When we designed the system we wanted to have a single globally unique identifier for each extension. So that there are no conflicts with other extensions. The mechanism we settled on uses one public/private key pair per extension with hash of the public key determining the extension's id.
+* Google chrome extensions are packaged into "crx" files
+* If you are using gallery,we generate the crx file for you when you hit the publish button.
+* If you want to host your extension on your own site,you will create the crx file with the "Pack Extension" button on the extensions management page in Google Chrome.
+* Make sure your extension UI design is simpler and minimal.
+* If you want extension to talk to a server ? Use XmlHttpRequest
+
+# Ref Urls
+* [Learn Basic](https://developer.chrome.com/extensions)
