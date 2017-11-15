@@ -105,6 +105,7 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 * If you want to host your extension on your own site,you will create the crx file with the "Pack Extension" button on the extensions management page in Google Chrome.
 * Make sure your extension UI design is simpler and minimal.
 * If you want extension to talk to a server ? Use XmlHttpRequest
+* If you want it to presist some data? Use Cookies, LocalStorage or HTML5 Databases.
 
 # Ref Urls
 * [Learn Basic](https://developer.chrome.com/extensions)
