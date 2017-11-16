@@ -152,5 +152,10 @@ chrome.bookmarks.update(42,
 ); 
 ```
 
+# Security Architecture 
+It's based on two principles :
+* Lease Privilege
+* Privilege Separation
+
 # Ref Urls
 * [Learn Basic](https://developer.chrome.com/extensions)
