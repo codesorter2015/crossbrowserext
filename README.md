@@ -94,13 +94,17 @@ Here's an example of using @@extension_id in a CSS file to construct a URL:
  background-image:url('chrome-extension://__MSG_@@extension_id__/background.png');
 }`
 
+# Override Pages
+* Allows you to replace:
+    * Bookmark Manager
+    * History
+    * New Tab
+* Can contain html,javascript and css
+
 # CRX file
 A crx file is really just a zip file of your extension directory plus 2 more things:
-
 * Public key
 * Signature - (Generated with private key and zipped content)
-
-* Fetch public data with XHR
 
 # Auto Update
 Browser will check that url every few hours for an xml file, and can fetch updated crx files over a plain,non-ssl connection because it check the signature inside the crx file before installing it.
@@ -115,6 +119,7 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 * If you are using gallery,we generate the crx file for you when you hit the publish button.
 * If you want to host your extension on your own site,you will create the crx file with the "Pack Extension" button on the extensions management page in Google Chrome.
 * Make sure your extension UI design is simpler and minimal.
+* Fetch public data with XHR
 * If you want extension to talk to a server ? Use XmlHttpRequest
 * If you want it to presist some data? Use Cookies, LocalStorage or HTML5 Databases.
 * An extension is a compressed directory
@@ -156,6 +161,16 @@ chrome.bookmarks.update(42,
 It's based on two principles :
 * Lease Privilege
 * Privilege Separation
+
+# Architecture
+Chrome
+* manifest.json file.
+* Background page - invisible page that holds your extension's main logic.
+* Options page. - Allows users to configure your extension. Use localStorage to save option or Use chrome.storage(Supports the storage of objects.Data is synced with Chrome Sync.  
+* Override pages.
+* Popup
+* Content Script - Used to interact with content loaded into the browser.
+* Arbitrary Pages that you can show with chorme.tabs.create() or window.open()
 
 # Ref Urls
 * [Learn Basic](https://developer.chrome.com/extensions)
