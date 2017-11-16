@@ -27,7 +27,7 @@ If you need access to the current page's DOM, then you have to use a content scr
 
 `"content_scripts": [
     {
-        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["http://*/*", "https://*/*"], //Host-matching patterns
         "js": ["content.js"]
     }
 ]`
@@ -73,7 +73,10 @@ These keywords require single-quotes.
 script-src 'self' (with quotes) authorizes the execution of JavaScript from the current host.
 script-src self (no quotes) allows JavaScript from a server named “self”
 
-
+# MISC
+* chrome-extension://<extensionID>/pathToFile
+* @@extension_id
+  
 # chrome.i18n
 Using chrome.i18n, we will implement internationalization across your whole extension.
 
@@ -100,6 +103,12 @@ Here's an example of using @@extension_id in a CSS file to construct a URL:
     * History
     * New Tab
 * Can contain html,javascript and css
+
+# Communication
+* Pages can call functions on each other and manipulate each other's DOMs.
+* Use getViews() and getBackgroundPage() functions to get references to pages in your extension.
+* Content scripts and extensions communication through simple message APIs.
+* 
 
 # CRX file
 A crx file is really just a zip file of your extension directory plus 2 more things:
