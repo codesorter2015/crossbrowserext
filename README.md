@@ -105,10 +105,10 @@ Here's an example of using @@extension_id in a CSS file to construct a URL:
 * Can contain html,javascript and css
 
 # Communication
+* Extensions can interact with web pages or servers using content scripts or cross-origin XMLHttpRequests. 
 * Pages can call functions on each other and manipulate each other's DOMs.
 * Use getViews() and getBackgroundPage() functions to get references to pages in your extension.
 * Content scripts and extensions communication through simple message APIs.
-* 
 
 # CRX file
 A crx file is really just a zip file of your extension directory plus 2 more things:
