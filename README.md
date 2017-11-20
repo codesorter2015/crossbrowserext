@@ -5,6 +5,13 @@ We are in the process of building single code framework for browser extension wh
 A browser extension is a small software programs that extends the functionality of a web browser. 
 Some extensions are authored using web technologies such as HTML, JavaScript, and CSS.
 
+# Manifest File
+The very first thing we'll need to create is a manifest file named manifest.json.
+
+It is a metadata file in JSON format that contains properties like your extension's name, description, version number and so on. 
+
+To learn more about the manifest, read the [Manifest File Format documentation](https://developer.chrome.com/extensions/manifest)
+
 # Background Pages
 Every extension has an invisible background page which is run by the browser.
 
@@ -20,7 +27,17 @@ Here is how you should describe it in the manifest file:
     "persistent": false/true
 }`
 
-Background pages are long-running scripts that help you manage state and coordinate tasks across extension components
+* Background pages are long-running scripts that help you manage state and coordinate tasks across extension components.
+* Background pages defined by background.html can include JavaScript code that controls the behavior of the extension.
+
+# Options Page
+* Any extension can have an options page, which lets users customize how the extension works.
+
+# Popup Page
+* The popup's contents are a web page defined by an HTML file (popup.html). 
+* The popup doesn't need to duplicate code that's in the background page because the popup can invoke functions on the background page.
+
+
 
 # Content Script
 If you need access to the current page's DOM, then you have to use a content script. The code is run within the context of the current web page, which means that it will be executed with every refresh. To add such a script, use the following syntax.
@@ -41,13 +58,6 @@ A Browser action appears in the toolbar of every tab.
 
 # Page Action
 A page action selectively appears in the omnibox and can be toggled on or off for each tab.
-
-# Manifest File
-The very first thing we'll need to create is a manifest file named manifest.json.
-
-It is a metadata file in JSON format that contains properties like your extension's name, description, version number and so on. 
-
-To learn more about the manifest, read the [Manifest File Format documentation](https://developer.chrome.com/extensions/manifest)
 
 # Load the extension
 * Visit chrome://extensions in your browser url
@@ -131,7 +141,9 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 * Fetch public data with XHR
 * If you want extension to talk to a server ? Use XmlHttpRequest
 * If you want it to presist some data? Use Cookies, LocalStorage or HTML5 Databases.
-* An extension is a compressed directory
+* An extension is a compressed directory.
+* If you upload your extension using the Chrome Developer Dashboard, the .crx file is created for you.\
+* When you package an extension the extension gets a permanent ID, which remains the same even after you update the extension.
 * Chrome is a global object to which all extension APIs are bound.
 * Chrome currently defines about 40 objects and 40 methods. "Chrome" is a name of the top-level object automatically exposed to all extensions.
 * Chrome extension has properties and methods. 
@@ -144,6 +156,7 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 - `chrome.bookmarks.*` requires bookmarks permission.
 - `chrome.tabs.*` requires tabs permission.
 ```
+* Most methods in the chrome.* APIs are asynchronous
 * Using asynchronous APIs is more challenging,but it's in the service of the best user experience possible and It won't take long to get the hang of it.
 * Refactor non-presentation code (let's improve the extension's performance and functionality by refactoring)  
 * Google Chrome is multi-process architecture which means it will support synchronous/asynchronous APIs is more challenging,but it's in
