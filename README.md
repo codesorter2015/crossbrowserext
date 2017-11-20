@@ -142,6 +142,7 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 * If you want extension to talk to a server ? Use XmlHttpRequest
 * If you want it to presist some data? Use Cookies, LocalStorage or HTML5 Databases.
 * An extension is a compressed directory.
+* By default, extensions don't run in incognito windows. 
 * If you upload your extension using the Chrome Developer Dashboard, the .crx file is created for you.\
 * When you package an extension the extension gets a permanent ID, which remains the same even after you update the extension.
 * Chrome is a global object to which all extension APIs are bound.
@@ -156,7 +157,7 @@ If you hosting your extension in our gallery,you don't need to worry about autou
 - `chrome.bookmarks.*` requires bookmarks permission.
 - `chrome.tabs.*` requires tabs permission.
 ```
-* Most methods in the chrome.* APIs are asynchronous
+* Most methods in the chrome.* APIs are asynchronous. Other chrome.* methods are synchronous. 
 * Using asynchronous APIs is more challenging,but it's in the service of the best user experience possible and It won't take long to get the hang of it.
 * Refactor non-presentation code (let's improve the extension's performance and functionality by refactoring)  
 * Google Chrome is multi-process architecture which means it will support synchronous/asynchronous APIs is more challenging,but it's in
