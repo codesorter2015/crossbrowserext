@@ -32,12 +32,12 @@ Here is how you should describe it in the manifest file:
 
 # Options Page
 * Any extension can have an options page, which lets users customize how the extension works.
+* Using this to modify the behavior or appearance of extensions.
 
 # Popup Page
 * The popup's contents are a web page defined by an HTML file (popup.html). 
 * The popup doesn't need to duplicate code that's in the background page because the popup can invoke functions on the background page.
-
-
+* The options page of a Chrome extension can also be opened by loading chrome-extension://Extension-ID/options.html in the browser directly.
 
 # Content Script
 If you need access to the current page's DOM, then you have to use a content script. The code is run within the context of the current web page, which means that it will be executed with every refresh. To add such a script, use the following syntax.
