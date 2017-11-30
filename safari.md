@@ -1,6 +1,9 @@
 # Creating safari extension
 
-I need to develop extensions for Safari, So I went to Safari Dev Center, clicked "Join Now Free" and it redirects you to the page where you need to purchase apple developer's certificate, which costs $99 each year 
+If you need to develop extension for Safari, you will go to Safari Dev Center, then clicked "Join Now Free" and it redirects you to the page where you need to purchase apple developer's certificate, which costs $99 each year.
+
+If you try to install safari extension without a safari extension certificate, your extension will only be available until you quit safari.
+
 Safari Extension Gallery
 
 # Notes
