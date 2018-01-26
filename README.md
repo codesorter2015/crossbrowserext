@@ -197,3 +197,6 @@ Chrome
 
 # Ref Urls
 * [Learn Basic](https://developer.chrome.com/extensions)
+
+# Sample Extensions
+* [samples](https://developer.chrome.com/extensions/samples)
